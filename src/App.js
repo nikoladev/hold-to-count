@@ -94,12 +94,15 @@ function DeOrIncrementButton ({ setNumber, deOrIncrementFunction, children }) {
   return (
     <button
       className='button'
-      // for devices with a mouse
-      onMouseDown={onPress}
-      onMouseUp={onRelease}
       // for touch devices
       onTouchStart={onPress}
       onTouchEnd={onRelease}
+
+      // for devices with a mouse
+      onMouseDown={onPress}
+      onMouseUp={onRelease}
+      // also stop counting when leaving the button area with the cursor
+      onMouseLeave={onRelease}
     >
       {children}
     </button>
